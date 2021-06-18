@@ -211,18 +211,46 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                height: 120px;
-                width: 200px;
                 margin-left: 8px;
-                background: #fff;
-                border-radius: 4px;
+                background: #797676;
+                border-radius: 2px;
+                height: 335px;
+                width: 203px;
                 .info{
                     margin-left: 8px;
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 9px;
+                        font-size: 14px;
+                    }
+                    h6{
+                        height: 22px;
+                        width: 101px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid rgba(132, 117, 117, 0.63);
+                        border-top: none;
+                        border-left: none;
+                        font-size: 12px;
+                    }
                 }
                    img{
-                       height: 40px;
-                       width: 40px;
-                       border: 50%;
+                    height: 157px;
+                    width: 203px;
+                    position: absolute;
+                    top: 0;
+                    object-fit: cover;
+                   }
+                   button{
+                    position: absolute;
+                    bottom: 6px;
+                    width: 183px;
+                    height: 26px;
+                    font-size: 12px;
+                    background: #FFE602;
+                    border: transparent;
                    }
                }
            }

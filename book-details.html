@@ -22,8 +22,10 @@
                     <input type="text" placeholder="Search books">
                     <i class="fas fa-search"></i>
                 </div>
-                <a href="#">Sign In</a>
-                <a href="#">Join</a>
+                <div id="login-box" style="display: flex;height: 100%;">
+                    
+                   
+                </div>
                </div>
            </nav>
        </header>
@@ -33,8 +35,37 @@
          </div>
        </section>
    </main>
+   <script>
+    function IstokenAvail(){
+        const box = document.getElementById('login-box')
+        if(localStorage.token){
+            if(!box.classList.contains('logged-in')){
+                box.classList.add('logged-in');
+                box.innerHTML=`
+                <a onclick="addBookForm(event)" href="#">Add book</a>
+             <a onclick="addAuthorForm(event)" href="#">Add author</a>
+             <a  href="profile.html">My Profile</a>
+                
+            `
+            }
+           
+        }else{
+         //    location.pathname = './books.html'
+         const box = document.getElementById('login-box')
+         box.classList.remove('logged-in')
+         box.innerHTML = `
+         <a href="login.html">Sign In</a>
+         <a href="sign-up.html">Join</a>         
+         `
+        }
+    }
+    IstokenAvail()
+    setInterval(IstokenAvail,4000)
+</script>
 
-
-   <script type="module" src="js/script.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script type="module" src="js/script.js"></script>
+<script  src="js/addbook.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ function signUp(event){
 
     const signForm = document.getElementById('sign-up')
     const{email,password,firstName,lastName} = signForm
+    console.log(signForm);
     const user = {
         email:email.value,
         password:password.value,
@@ -20,7 +21,7 @@ function signUp(event){
        .then(res=> res.json())
        .then(data=>{
            console.log(data);
-        if ( data.success === true) {
+        if (data.success) {
             Swal.fire({
               title: 'Sign Up',
               text: 'Your are sign up successfully',
@@ -28,8 +29,10 @@ function signUp(event){
               showCancelButton: true,
               showCloseButton: true,
               timer: 3000
-            });
-    
+            }).then(result => {
+              window.location.pathname = '/books.html';
+            })
+            localStorage.setItem('token',data.token)
           } else {
             Swal.fire({
                 title: 'Hatolik',
@@ -85,9 +88,13 @@ function login(event) {
             showCancelButton: true,
             showCloseButton: true,
             timer: 3000
-          });
-  
-        } else {
+          }).then(result=>{
+            window.location.pathname = '/books.html'
+          })
+          
+    localStorage.setItem('token',result.token)
+        }
+         else {
             Swal.fire({
                 title: 'Hatolik',
                 text: error.message,
@@ -98,6 +105,7 @@ function login(event) {
               })
         }
       })
+      
       .catch(error => {
         Swal.fire({
           title: 'Hatolik',

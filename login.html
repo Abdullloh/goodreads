@@ -14,16 +14,16 @@
     <link rel="stylesheet" href="css/form.css">
 </head>
 <body>
-   <a href="index.html"> <img style="position: absolute;top: 20px;left: 20px;" src="img/logo.png" alt="logo"></a>
+   <a href="books.html"> <img style="position: absolute;top: 20px;left: 20px;" src="img/logo.png" alt="logo"></a>
    <div id="createNewBook">
     <h3>Log in to your account</h3>
     <form id="login" onsubmit="login(event)">
-       <input type="text" name="email" placeholder="email">
+       <input onfocus="this.value = ''" type="text" name="email" placeholder="email">
        <input type="password" name="password" placeholder="password">
        <button>Login</button>
     </form>
    </div>
    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script  src="js/signUp.js"></script>
+<script   src="js/signUp.js"></script>
 </body>
 </html>
