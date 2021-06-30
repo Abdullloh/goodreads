@@ -5,25 +5,10 @@ function displayError(errorMsg){
     `;
 };
 
-// function displayLoader(loading = true){
-//     const  spinner = `
-//     <div id="spinner-wrapper">
-//         <div class="spinner-border" role="status">
-//         <span class="visually-hidden">Loading...</span>
-//         </div>
-//     <div>
-//     `
-//     if(loading){
-//         document.body.innerHTML += spinner;
-//     }else{
-//         const spinner = document.getElementById('spinner-wrapper')
-//         document.body.removeChild(spinner)
-//     }
-// }
+
 
 
 
 export{
     displayError,
-    // displayLoader,
 }

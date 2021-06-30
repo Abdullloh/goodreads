@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,11 +15,11 @@
            <nav>
                <img src="img/logo2.svg" alt="">
                <div id="nav-list">
-                <a href="index.html">Home</a>
-                <a href="books.html">My Books</a>
+                <a href="books.html">Home</a>
+                <a href="myBooks.html">My Books</a>
                 <a href="authors.html">Authors</a>
                 <div id="nav-input">
-                    <input type="text" placeholder="Search books">
+                    <input id="nav-inp" type="text" placeholder="Search books">
                     <i class="fas fa-search"></i>
                 </div>
                 <div id="login-box" style="display: flex;height: 100%;">
@@ -44,13 +44,16 @@
                 box.innerHTML=`
                 <a onclick="addBookForm(event)" href="#">Add book</a>
              <a onclick="addAuthorForm(event)" href="#">Add author</a>
-             <a  href="profile.html">My Profile</a>
+             <select>
+                <option selected value='profile.html'> <a  href="profile.html">My Profile</a> </option>
+                <option  value='logout'> Log out </option>
+             </select>
                 
             `
             }
            
         }else{
-         //    location.pathname = './books.html'
+            // location.pathname = './index.html'
          const box = document.getElementById('login-box')
          box.classList.remove('logged-in')
          box.innerHTML = `
@@ -60,7 +63,7 @@
         }
     }
     IstokenAvail()
-    setInterval(IstokenAvail,4000)
+    setInterval(IstokenAvail,2000)
 </script>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

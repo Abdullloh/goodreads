@@ -1,5 +1,9 @@
 
-function addBookForm() {
+async function addBookForm() {
+  const auth = await fetch("http://book.alitechbot.uz/api/authors");
+   const authors = await auth.json();
+  const authOptions = authors.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
+
     const form = `
     <div class="modal" tabindex="-1" id="myModal">
       <div class="modal-dialog">
@@ -17,8 +21,7 @@ function addBookForm() {
             <input required type="text" name="language" placeholder="Language">
             <input required type="text" name="category" placeholder="Category">
             <select name="author" id="select">
-            <option value="60c227bd93aa306e2bf12ecb">Azamat</option>
-            <option value="60c2282393aa306e2bf12ecc">Abdulhamid</option>
+            ${authOptions}
             </select>
           </form>
           </div>
@@ -49,7 +52,7 @@ function addBookForm() {
           <div class="modal-body">
           <form id="new-author-form">
           <input type="text" name="firstName" placeholder="First name">
-            <input type="text" name="title" placeholder="Title">
+          <input type="text" name="lastName" placeholder="lastName">
           </form>
           </div>
           <div class="modal-footer">
@@ -96,7 +99,8 @@ function addBookForm() {
     fetch("http://book.alitechbot.uz/api/books", requestOptions)
       .then(response => response.json())
       .then(result => {
-        if (result.success) {
+        console.log(result);
+        if (result.success != false) {
           window.Swal.fire({
             title: 'Kitob yuklandi',
             text: 'Siz taqdim qilgan kitob yaratildi',
@@ -108,33 +112,36 @@ function addBookForm() {
   
           // fetchBooks()
   
-        } else {
-          Swal.fire({
-            title: 'Hatolik',
-            text: result.error,
-            icon: 'error',
-            showCancelButton: true,
-            showCloseButton: true,
-            timer: 5000
-          })
         }
+        //  else {
+        //   Swal.fire({
+        //     title: 'Hatolik',
+        //     text: result.error,
+        //     icon: 'error',
+        //     showCancelButton: true,
+        //     showCloseButton: true,
+        //     timer: 5000
+        //   })
+        // }
       })
       .catch(error => console.log('error', error));
   }
   
   function createAuthor() {
     const bookForm = document.getElementById('new-author-form');
-    const { title, firstName } = bookForm;
+    const { lastName, firstName } = bookForm;
     const author = {
       firstName: firstName.value,
-      title: title.value,
+      lastName: lastName.value,
     };
     console.log(author);
   
     var requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' ,
+      'Authorization': `Bearer ${localStorage.token}`},
       body: JSON.stringify(author),
+      
       redirect: 'follow'
     };
   
@@ -167,3 +174,4 @@ function addBookForm() {
       .catch(error => console.log('error', error));
   }
  
+  window.addBookForm = addBookForm;
