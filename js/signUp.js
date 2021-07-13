@@ -76,7 +76,7 @@ function login(event) {
       body: JSON.stringify(user),
     };
   
-    fetch("http://book.alitechbot.uz/api/login", requestOptions)
+    fetch("https://book.alitechbot.uz/api/login", requestOptions)
       .then(response => response.json())
       .then(result => {
           console.log(result);

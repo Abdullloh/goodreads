@@ -12,11 +12,10 @@ function fetchBooks() {
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
-      const { payload } = data;
-      console.log(data);
+      const { docs } = data.payload;
       let booksContainer = document.getElementById("books-container");
       booksContainer.innerHTML = "";
-      payload.forEach((item) => {
+      docs.forEach((item) => {
         const {
           imageLink,
           country,
