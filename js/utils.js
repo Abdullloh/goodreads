@@ -6,7 +6,22 @@ function displayError(errorMsg){
 };
 
 
-
+function  books(){
+    fetch("https://book4.p.rapidapi.com/", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-key": "4af4cfbea2msh5ea3bc42539843ep16841ejsn196cf74ea062",
+            "x-rapidapi-host": "book4.p.rapidapi.com"
+        }
+    })
+    .then(response => {
+       console.log(response.json());
+    }) 
+    .catch(err => {
+        console.error(err);
+    });
+}
+books()
 
 
 export{

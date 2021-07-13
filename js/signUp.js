@@ -11,7 +11,7 @@ function signUp(event){
         lastName:lastName.value,
     }
     console.log(user);
-    
+    localStorage.setItem('user',JSON.stringify(user))
     var requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -109,6 +109,33 @@ main header nav #nav-list select:hover {
 main section {
   height: 100%;
 }
+main section #profile-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main section #profile-container .first-column {
+  margin-bottom: 11px;
+}
+main section #profile-container div input {
+  height: 46px;
+  width: 330px;
+  border: 1px solid #0000004d;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+main section #profile-container button {
+  position: absolute;
+  right: 0;
+  bottom: -74px;
+  height: 36px;
+  width: 120px;
+  border-radius: 8px;
+  background: green;
+  border: transparent;
+  color: white;
+}
 main section #books-container {
   display: flex;
   width: 100%;
@@ -118,23 +145,84 @@ main section #books-container {
 main section #books-container #book {
   text-decoration: none;
   color: black;
-  cursor: pointer;
   margin-top: 10px;
   display: flex;
-  border: 2px solid rgba(0, 0, 0, 0.27);
+  border: 1px solid rgba(0, 0, 0, 0.27);
   justify-content: center;
   align-items: center;
   margin-left: 8px;
-  border-radius: 10px;
+  border-radius: 6px;
   height: 330px;
   width: 245px;
   transition: 1s;
+}
+main section #books-container #book .delete {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  left: 0px;
+  justify-content: space-around;
+  display: flex;
+}
+main section #books-container #book .delete a {
+  width: 45%;
+  height: 30px;
+  font-size: 13px;
+  background: #ffd75e;
+  border: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.3s;
+}
+main section #books-container #book .delete a:hover {
+  color: #ffd75e;
+  background-color: #fff;
+  border: 1px solid #ffd75e;
+  font-weight: 600;
+  transition: 0.3s;
+}
+main section #books-container #book .delete i {
+  width: 45%;
+  background: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+main section #books-container #book .delete i:hover {
+  color: #ff0000;
+  background-color: #fff;
+  border: 1px solid #f90000;
+  font-weight: 600;
+  transition: 0.3s;
 }
 main section #books-container #book .info {
   position: absolute;
   top: 157px;
   width: 100%;
-  z-index: -1;
+}
+main section #books-container #book .info #cont {
+  margin-left: 0;
+  display: flex;
+  flex-direction: revert;
+  justify-content: space-between;
+}
+main section #books-container #book .info #cont a {
+  color: blue;
+  text-decoration: underline;
+  margin-right: 21px;
+  display: flex;
+  cursor: pointer;
 }
 main section #books-container #book .info div {
   display: flex;
@@ -158,7 +246,7 @@ main section #books-container #book .info h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid rgba(132, 117, 117, 0.438);
+  border: 1px solid rgba(132, 117, 117, 0.438);
   border-top: none;
   border-left: none;
   font-size: 15px;
@@ -171,43 +259,67 @@ main section #books-container #book img {
   object-fit: cover;
   top: 0;
   transition: 0.5s;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
-main section #books-container #book button {
+main section #books-container #book .want {
+  right: 5px;
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: 5px;
+  width: 45%;
   height: 30px;
-  font-size: 15px;
-  background: #FFE602;
+  font-size: 12px;
+  background: #445076;
   border: transparent;
   cursor: pointer;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  font-weight: 500;
+  z-index: 1;
+  transition: 0.2s;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+}
+main section #books-container #book .want:hover {
+  background-color: #fff;
+  color: #445076;
+  border: 1px solid #445076;
   font-weight: 600;
-  z-index: 1;
-  transition: 0.2s;
+  transition: 0.3s;
 }
-main section #books-container #book button::after {
-  content: "";
+main section #books-container #book .button {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0;
-  background: #000000;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  bottom: 5px;
+  width: 45%;
+  height: 30px;
+  font-size: 13px;
+  background: #ffd75e;
+  border: transparent;
+  cursor: pointer;
+  font-weight: 500;
   z-index: 1;
   transition: 0.2s;
+  text-align: center;
+  text-decoration: none;
+  left: 5px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: 0.3s;
 }
-main section #books-container #book button:hover {
-  color: #fff;
-}
-main section #books-container #book button:hover::after {
-  height: 100%;
-  z-index: -1;
+main section #books-container #book .button:hover {
+  color: #ffd75e;
+  background-color: #fff;
+  border: 1px solid #ffd75e;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
 .spin-container {
@@ -217,7 +329,7 @@ main section #books-container #book button:hover::after {
   padding: 200px;
   text-align: center;
   width: 100vw;
-  background: #091830;
+  background: #382202;
 }
 
 .spin {
@@ -291,9 +403,20 @@ main section #books-container #book button:hover::after {
 .modal .modal-body input {
   margin-top: 8px;
   margin-left: 3px;
-  border: 1px solid;
+  border: 1px solid #0000005c;
   padding: 2px 6px;
   border-radius: 3px;
+}
+.modal .modal-body #author {
+  width: 210px;
+  height: 30px;
+  margin-top: 8px;
+  margin-left: 3px;
+  border: 1px solid #0000005c;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #000000b8;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

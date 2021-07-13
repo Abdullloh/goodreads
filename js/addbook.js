@@ -1,8 +1,9 @@
-
+// -------------------------------Add Book From --------------------------
 async function addBookForm() {
   const auth = await fetch("http://book.alitechbot.uz/api/authors");
    const authors = await auth.json();
-  const authOptions = authors.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
+   const {payload} = authors
+  const authOptions = payload.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
 
     const form = `
     <div class="modal" tabindex="-1" id="myModal">
@@ -16,11 +17,12 @@ async function addBookForm() {
             <input required type="text" name="title" placeholder="Title">
             <input required type="number" name="pages" placeholder="Pages">
             <input required type="number" name="price" placeholder="Price">
-            <input required type="url" name="imageLink" placeholder="Image">
+            <input required type="file" name="imageLink" placeholder="Image">
             <input required type="text" name="country" placeholder="Country">
             <input required type="text" name="language" placeholder="Language">
             <input required type="text" name="category" placeholder="Category">
-            <select name="author" id="select">
+            <select id="author" name="author" >
+            <option value="select Author" selected>Select Author </option>
             ${authOptions}
             </select>
           </form>
@@ -40,7 +42,7 @@ async function addBookForm() {
     })
     myModal.show();
   }
-  
+// ----------------------------------Add Author Form --------------------------------
   function addAuthorForm() {
     const form = `
     <div class="modal" tabindex="-1" id="myAuthorModal">
@@ -70,7 +72,7 @@ async function addBookForm() {
     })
     myModal.show();
   }
-  
+  // ---------------------------------Create Book --------------------------------------
   function createBook() {
     const bookForm = document.getElementById('new-book-form');
     const { title, pages, imageLink, author, category, country, price,language } = bookForm;
@@ -99,6 +101,7 @@ async function addBookForm() {
     fetch("http://book.alitechbot.uz/api/books", requestOptions)
       .then(response => response.json())
       .then(result => {
+        
         console.log(result);
         if (result.success != false) {
           window.Swal.fire({
@@ -108,9 +111,12 @@ async function addBookForm() {
             showCancelButton: true,
             showCloseButton: true,
             timer: 3000
-          });
+          }
+          ).then(()=> (location.pathname='/books.html'))
+          
+        
   
-          // fetchBooks()
+       
   
         }
         //  else {
@@ -126,7 +132,7 @@ async function addBookForm() {
       })
       .catch(error => console.log('error', error));
   }
-  
+  // -----------------------------------------Create Author ------------------------------
   function createAuthor() {
     const bookForm = document.getElementById('new-author-form');
     const { lastName, firstName } = bookForm;
@@ -156,9 +162,8 @@ async function addBookForm() {
             showCancelButton: true,
             showCloseButton: true,
             timer: 3000
-          });
-  
-          // fetchBooks()
+          })
+         
   
         } else {
           Swal.fire({
