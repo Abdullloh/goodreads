@@ -17,7 +17,7 @@ async function addBookForm() {
             <input required type="text" name="title" placeholder="Title">
             <input required type="number" name="pages" placeholder="Pages">
             <input required type="number" name="price" placeholder="Price">
-            <input required type="file" name="imageLink" placeholder="Image">
+            <input required type="url" name="imageLink" placeholder="Image">
             <input required type="text" name="country" placeholder="Country">
             <input required type="text" name="language" placeholder="Language">
             <input required type="text" name="category" placeholder="Category">
@@ -91,7 +91,7 @@ async function addBookForm() {
     var requestOptions = {
       method: 'POST',
       headers: { 
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json', 
         'Authorization': `Bearer ${localStorage.token}`
      },
       body: JSON.stringify(book),
