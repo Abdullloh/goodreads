@@ -98,7 +98,7 @@ async function addBookForm() {
       redirect: 'follow'
     };
   
-    fetch("http://book.alitechbot.uz/api/books", requestOptions)
+    fetch("https://book.alitechbot.uz/api/books", requestOptions)
       .then(response => response.json())
       .then(result => {
         

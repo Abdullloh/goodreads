@@ -104,7 +104,7 @@
               .then(data=> console.log(data))
         }
        function wantRead(id){
-          fetch('http://book.alitechbot.uz/api/users/shelf', {
+          fetch('https://book.alitechbot.uz/api/users/shelf', {
             method: "POST",
             body:JSON.stringify( { bookId:id,shelfName:'classic'}),
 
@@ -145,7 +145,7 @@
             },
             redirect: 'follow'
         };
-          fetch(`http://book.alitechbot.uz/api/users/shelf/${id}`,requestOptions) 
+          fetch(`https://book.alitechbot.uz/api/users/shelf/${id}`,requestOptions) 
           .then(data=>data.json())
           .then(data=> console.log(data))
           .cathc(err=>console.log(err))

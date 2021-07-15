@@ -209,7 +209,7 @@ function myFavor() {
     // redirect: "follow",
   };
   
-  fetch("http://book.alitechbot.uz/api/users/shelf", requestOptions)
+  fetch("https://book.alitechbot.uz/api/users/shelf", requestOptions)
   // console.log('fetching')
     .then((data) => data.json())
     .then((result) => {
@@ -272,7 +272,7 @@ function myBooks() {
     },
     redirect: "follow",
   };
-  fetch("http://book.alitechbot.uz/api/books/my-books", requestOptions)
+  fetch("https://book.alitechbot.uz/api/books/my-books", requestOptions)
     .then((data) => data.json())
     .then((result) => {
       console.log(result);

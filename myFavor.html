@@ -55,7 +55,7 @@
             },
             redirect: 'follow'
         };
-          fetch(`http://book.alitechbot.uz/api/books/${id}`,requestOptions) 
+          fetch(`https://book.alitechbot.uz/api/books/${id}`,requestOptions) 
           .then(data=>data.json())
           .then(data=> {
             if ( data.success ) {
@@ -67,7 +67,7 @@
                     showCloseButton: true,
                     timer: 3000
                 }).then(result=>{
-                    window.location.pathname = '/myBooks.html'
+                    window.location.pathname = '/myFavor.html'
                 })
           }else{
            alert('Nooo')
@@ -105,4 +105,3 @@
    </script>
 
 </body>
-</html>
