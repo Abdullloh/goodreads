@@ -31,8 +31,9 @@ function signUp(event){
               timer: 3000
             }).then(result => {
               window.location.pathname = '/books.html';
+              localStorage.setItem('token',data.token)
+              localStorage.getItem('user')
             })
-            localStorage.setItem('token',data.token)
           } else {
             Swal.fire({
                 title: 'Hatolik',

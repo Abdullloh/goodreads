@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
@@ -38,10 +39,8 @@
         }
     </style>
     <main>
-       <div class="mobile">
-        <span></span>
-        <span></span>
-        <span></span>
+       <div onclick="hide(event)" class="mobile">
+            <i   class="fas fa-align-justify"></i>
        </div>
        <div class="comp">
            <h4>Home</h4>
@@ -51,12 +50,25 @@
        </div>
     </main>
     <script>
-        let mobile = document.querySelector('.mobile')
-        mobile.addEventListener('click',()=>{
+        // let mobile = document.querySelector('.mobile')
+        // mobile.addEventListener('click',(event)=>{
+        //     let doc= document.querySelector('.comp')
+        //     doc.style.cssText = 'display:block'
+        //     let no = event.target
+        //     no.innerHtml = `X`
+        // })
+        function hide(event){
+            event.target.style.cssText = 'display:none'
             let doc= document.querySelector('.comp')
             doc.style.cssText = 'display:block'
-        })
-        
+            let cancel = event.target;
+            console.log(cancel);
+            cancel.innerHTML = `<i onclick='clear()' class="far fa-window-close"></i>`
+        }
+        function clear(){
+            let doc= document.querySelector('.comp')
+            doc.style.cssText = 'display:none'
+        }
     </script>
 </body>
 </html>

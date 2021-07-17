@@ -7,8 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -90,7 +88,7 @@
            let text1 = document.getElementById('textArea').value
            let text2 = document.getElementById('input').value
            console.log(text1,text2);
-            fetch('http://book.alitechbot.uz/api/books/comment', {
+            fetch('https://book.alitechbot.uz/api/books/comment', {
             method: "POST",
             body:JSON.stringify({
                 bookId: id,
@@ -101,8 +99,23 @@
                     }
               })
               .then(data=>data.json())
-              .then(data=> console.log(data))
+              .then(data=> {
+                  if(data.success){
+                    Swal.fire({
+                    title: 'Comment added succesfully',
+                    text: 'Comment added succesfully to your book ',
+                    icon: 'success',
+                    showCancelButton: true,
+                    showCloseButton: true,
+                }).then(result=>{
+                    window.location.pathname = '/books.html'
+          })
+                  }
+                
+              })
+              .catch(err=> console.log(err))
         }
+        
        function wantRead(id){
           fetch('https://book.alitechbot.uz/api/users/shelf', {
             method: "POST",
@@ -133,6 +146,7 @@
         
          }
         )
+        .catch(err=>console.log(err))
     }
 
        function deleteBook(id){
@@ -185,11 +199,13 @@
                     <a onclick="addBookForm(event)" href="#">Add book</a>
                     <a onclick="addAuthorForm(event)" href="#">Add author</a>
                 <select onclick="logOut(event)">
+                    <option value='user'>User</option>
                     <option value="profile"><a href='profile.html'> My Profile</a> </option>
                     <option  value="logout" > Log out </option>
                 </select>
                 
             `
+          
             }
            
         }else{
@@ -209,13 +225,12 @@
         let value = event.target.value
         console.log(value);
         if(value === 'logout'){
-
+            alert('Are you sure to leave')
             localStorage.clear()
-            
-
+            location.pathname='/index.html'
+        }else if(value === 'profile'){
+            location.pathname = '/profile.html'
         }
-       
-      
     }
    
 </script>

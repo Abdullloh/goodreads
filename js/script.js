@@ -8,7 +8,7 @@ const Default_Author_Image =
 // ======================Print Books to the Screen =====================
 function fetchBooks() {
   displaySpinner(true);
-  fetch("http://book.alitechbot.uz/api/books")
+  fetch("https://book.alitechbot.uz/api/books")
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
@@ -26,10 +26,14 @@ function fetchBooks() {
           category,
           price,
         } = item;
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
+        if(imageLink.startsWith('https')){
+          imageFinalLink = imageLink 
+        }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
                    <div id="book" >
-                      <img src='${validateImage(imageLink)}'>
+                      <img src='${validateImage(imageFinalLink)}'>
                         <div class="info">
                            <div id='cont'>
                            <h6> ${country}</h6>
@@ -67,33 +71,46 @@ function fetchBookById() {
   let id = query.get("id");
   console.log(id);
   displaySpinner(true);
-  fetch(`http://book.alitechbot.uz/api/books/${id}`)
+  fetch(`https://book.alitechbot.uz/api/books/${id}`)
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
       const { book } = data.payload;
       const { comment } = data.payload;
-    
+      
       console.log(book);
       const { imageLink, author, country, language, year, pages, title, _id,description } =
         book;
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
+        if(imageLink.startsWith('https')){
+          imageFinalLink = imageLink 
+        }
       const { lastName } = author;
       console.log(lastName);
       let booksContainer = document.getElementById("books-container");
 
       booksContainer.innerHTML += `
                    <div id="book" data-id='${_id}'>
-                   <img src='${validateImage(imageLink)}'/>
+                   <div id='bookCont'>
+                   <img src='${validateImage(imageFinalLink)}'/>
+                   </div>
                         <div class="info">
-                            <h4> ${country}</h4>
-                            <h5>${lastName} - ${title}</h5>
-                            <p>Language: ${language}</p>
-                            <p>Pages:${pages}</p>
-                            <p>Year:${year}</p>
-                            <div id='list'>
-                            ${description}
-                           </div>
+                        <h3>${lastName} - ${title}</h3>
+                        <h3> Book description</h3>
+                        <div class="area">
+                        <p>${description}</p>
                         </div>
+                           <div style="padding: 15px 0;">
+                           <h4>Book details</h4>
+                                <h4>Country: ${country}</h4>
+                                <p>Language: ${language}</p>
+                                <p>Pages:${pages}</p>
+                                <p>Year:${year}</p>
+                                <div id='list'>
+                                  
+                                </div>
+                           </div>
+                          </div>
                     </div>
             `;
             let commentHtml = document.getElementById('list')
@@ -231,10 +248,14 @@ function myFavor() {
           price,
         } = item;
         console.log(author);
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
+        if(imageLink.startsWith('https')){
+          imageFinalLink = imageLink 
+        }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
         <div  id="book">
-           <img src='${validateImage(imageLink)}'>
+           <img src='${validateImage(imageFinalLink)}'>
              <div class="info">
                  <h6> ${country}</h6>
                  <div>
@@ -293,10 +314,14 @@ function myBooks() {
           price,
         } = item;
         console.log(author);
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
+        if(imageLink.startsWith('https')){
+          imageFinalLink = imageLink 
+        }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
         <div  id="book">
-           <img src='${validateImage(imageLink)}'>
+           <img src='${validateImage(imageFinalLink)}'>
              <div class="info">
                  <h6> ${country}</h6>
                  <div>

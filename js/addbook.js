@@ -3,7 +3,7 @@ async function addBookForm() {
   const auth = await fetch("http://book.alitechbot.uz/api/authors");
    const authors = await auth.json();
    const {payload} = authors
-  const authOptions = payload.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
+   const authOptions = payload.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
 
     const form = `
     <div class="modal" tabindex="-1" id="myModal">
@@ -15,9 +15,9 @@ async function addBookForm() {
           <div class="modal-body">
           <form id="new-book-form">
             <input required type="text" name="title" placeholder="Title">
-            <input required type="number" name="pages" placeholder="Pages">
+            <input required type="text" name="pages" placeholder="Pages">
             <input required type="number" name="price" placeholder="Price">
-            <input required type="url" name="imageLink" placeholder="Image">
+            <input style="width: 45%;" required type="file" name="imageLink" placeholder="Image">
             <input required type="text" name="country" placeholder="Country">
             <input required type="text" name="language" placeholder="Language">
             <input required type="text" name="category" placeholder="Category">
@@ -25,6 +25,7 @@ async function addBookForm() {
             <option value="select Author" selected>Select Author </option>
             ${authOptions}
             </select>
+           <textarea name="description"></textarea>
           </form>
           </div>
           <div class="modal-footer">
@@ -75,7 +76,9 @@ async function addBookForm() {
   // ---------------------------------Create Book --------------------------------------
   function createBook() {
     const bookForm = document.getElementById('new-book-form');
-    const { title, pages, imageLink, author, category, country, price,language } = bookForm;
+    const { title, pages, imageLink, author, category, country, price,language,description} = bookForm;
+    console.log(title);
+    console.log(description);
     const book = {
       language:language.value,
       title: title.value,
@@ -84,17 +87,29 @@ async function addBookForm() {
       author: author.value,
       category: category.value,
       country: country.value,
-      price: price.value
+      price: price.value,
+      description:description.value
     };
     console.log(book);
+    let formData = new FormData()
+    formData.append('title',title.value)
+    formData.append('pages',pages.value)
+    formData.append('image',imageLink.files[0])
+    formData.append('author',author.value)
+    formData.append('category',category.value)
+    formData.append('country',country.value)
+    formData.append('price',price.value)
+    formData.append('language',language.value)
+    formData.append('description',description.value)
   
     var requestOptions = {
       method: 'POST',
       headers: { 
-        'Content-Type': 'application/json', 
-        'Authorization': `Bearer ${localStorage.token}`
+        // 'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${localStorage.token}`,
+        'Access-Control-Allow-Origin':'*'
      },
-      body: JSON.stringify(book),
+      body:formData,
       redirect: 'follow'
     };
   

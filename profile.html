@@ -14,7 +14,7 @@
 <body>
    <main>
        <header>
-            <a href="books.html"><img src="img/home.jpg" alt="home">   </a>
+            <a href="index.html"><img src="img/home.jpg" alt="home">   </a>
            <nav>
                <img src="img/logo2.svg" alt="">
                <div id="nav-list">
@@ -180,8 +180,8 @@
                             return     booksContainer.innerHTML += `
                              
                                <ul>
-                                <li>Result By title:${title}</li>
-                                </ul>
+                                 <li>Result By title:${title}</li>
+                               </ul>
                              `
                          })
                         }).catch(err=>console.log(err))
@@ -220,17 +220,18 @@
         let value = event.target.value
         console.log(value);
         if(value === 'logout'){
-
+            alert('Are you sure to live?')
             localStorage.clear()
+            location.pathname='/index.html'
             
 
         }
-<<<<<<< HEAD
-        // else if(value === 'profile' ){
-        //   ()=>{
-        //       location.pathname('/profile.html')
-        //   }
-        // }
+
+        else if(value === 'profile' ){
+          ()=>{
+              location.pathname('/profile.html')
+          }
+        }
       
     }
    
