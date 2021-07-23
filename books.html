@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-     <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-   <main>
-       <header>
-            <a href="books.html"><img src="img/home.jpg" alt="home">   </a>
-           <nav>
-               <img src="img/logo2.svg" alt="">
-               <div id="nav-list">
-                <a href="books.html">Home</a>
-                <a href="myBooks.html">My Books</a>
-                <a href="myFavor.html">Favourites</a>
-                <a href="authors.html">Authors</a>
-                <div id="nav-input">
-                    <input onkeydown="searchByInputValue(event)" id="nav-inp" type="text" placeholder="Search books">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div id="login-box" style="display: flex;height: 100%;">
-                </div>
-               </div>
-           </nav>
-       </header>
-       <section>
-           <h1 style="    display: flex;
-           justify-content: center;
-           font-size: 25px;">Main Books</h1>
-        <div id="books-container">
-          
-         </div>
-       </section>
-   </main>
-  
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <a href="books.html"><img src="img/home.jpg" alt="home" /> </a>
+        <nav>
+          <img src="img/logo2.svg" alt="" />
+          <div id="nav-list">
+            <a href="books.html">Home</a>
+            <a href="myBooks.html">My Books</a>
+            <a href="myFavor.html">Favourites</a>
+            <a href="authors.html">Authors</a>
+            <div id="nav-input">
+              <input
+                onkeydown="searchByInputValue(event)"
+                id="nav-inp"
+                type="text"
+                placeholder="Search books"
+              />
+              <i class="fas fa-search"></i>
+            </div>
+            <div id="login-box" style="display: flex; height: 100%"></div>
+          </div>
+        </nav>
+      </header>
+      <section>
+        <h1 style="display: flex; justify-content: center; font-size: 25px">
+          Main Books
+        </h1>
+        <div id="books-container"></div>
+      </section>
+    </main>
 
-   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-   <script src="js/addbook.js"></script>
-   <script type="module" src="js/script.js"></script>
-   <script>
-        function modalShow(id){
-            console.log(id);
-       const form= `
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/addbook.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script>
+      function modalShow(id) {
+        console.log(id);
+        const form = `
 
                 <div id='myAuthorModal' class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -75,127 +91,130 @@
                     </div>
                 </div>
                 </div>
-          `
-          document.body.innerHTML+= form
-          var myModal = new bootstrap.Modal(document.getElementById('myAuthorModal'), {
-            keyboard: false
-            })
-            myModal.show();
-        }
+          `;
+        document.body.innerHTML += form;
+        var myModal = new bootstrap.Modal(
+          document.getElementById("myAuthorModal"),
+          {
+            keyboard: false,
+          }
+        );
+        myModal.show();
+      }
 
-        function postComment(id){
-            console.log(id);
-           let text1 = document.getElementById('textArea').value
-           let text2 = document.getElementById('input').value
-           console.log(text1,text2);
-            fetch('https://book.alitechbot.uz/api/books/comment', {
-            method: "POST",
-            body:JSON.stringify({
-                bookId: id,
-                text: text1
-            }),
-            headers: {'Content-Type': 'application/json',
-                     'Authorization': `Bearer ${localStorage.token}`
-                    }
-              })
-              .then(data=>data.json())
-              .then(data=> {
-                  if(data.success){
-                    Swal.fire({
-                    title: 'Comment added succesfully',
-                    text: 'Comment added succesfully to your book ',
-                    icon: 'success',
-                    showCancelButton: true,
-                    showCloseButton: true,
-                }).then(result=>{
-                    window.location.pathname = '/books.html'
-          })
-                  }
-                
-              })
-              .catch(err=> console.log(err))
-        }
-        
-       function wantRead(id){
-          fetch('https://book.alitechbot.uz/api/users/shelf', {
-            method: "POST",
-            body:JSON.stringify( { bookId:id,shelfName:'classic'}),
-
-            headers: {'Content-Type': 'application/json',
-                     'Authorization': `Bearer ${localStorage.token}`
-                    }
-            })
-        .then(data=>data.json() )
-        .then(data=>{
-            console.log(data);
-            const{success} = data;
-            if ( success ) {
-                Swal.fire({
-                    title: 'Added succesfully',
-                    text: 'Book added succesfully to your wishest list',
-                    icon: 'success',
-                    showCancelButton: true,
-                    showCloseButton: true,
-                }).then(result=>{
-                    window.location.pathname = '/books.html'
-          })
-        }
-        else{
-                alert('try again')
+      function postComment(id) {
+        console.log(id);
+        let text1 = document.getElementById("textArea").value;
+        let text2 = document.getElementById("input").value;
+        console.log(text1, text2);
+        fetch("https://book.alitechbot.uz/api/books/comment", {
+          method: "POST",
+          body: JSON.stringify({
+            bookId: id,
+            text: text1,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token}`,
+          },
+        })
+          .then((data) => data.json())
+          .then((data) => {
+            if (data.success) {
+              Swal.fire({
+                title: "Comment added succesfully",
+                text: "Comment added succesfully to your book ",
+                icon: "success",
+                showCancelButton: true,
+                showCloseButton: true,
+              }).then((result) => {
+                window.location.pathname = "/books.html";
+              });
             }
-        
-         }
-        )
-        .catch(err=>console.log(err))
-    }
+          })
+          .catch((err) => console.log(err));
+      }
 
-       function deleteBook(id){
-           console.log(id);
-           var requestOptions = {
-            method: 'DELETE',
-            headers: { 
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.token}`
-            },
-            redirect: 'follow'
+      function wantRead(id) {
+        fetch("https://book.alitechbot.uz/api/users/shelf", {
+          method: "POST",
+          body: JSON.stringify({ bookId: id, shelfName: "classic" }),
+
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token}`,
+          },
+        })
+          .then((data) => data.json())
+          .then((data) => {
+            console.log(data);
+            const { success } = data;
+            if (success) {
+              Swal.fire({
+                title: "Added succesfully",
+                text: "Book added succesfully to your wishest list",
+                icon: "success",
+                showCancelButton: true,
+                showCloseButton: true,
+              }).then((result) => {
+                window.location.pathname = "/books.html";
+              });
+            } else {
+              alert("try again");
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+
+      function deleteBook(id) {
+        console.log(id);
+        var requestOptions = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token}`,
+          },
+          redirect: "follow",
         };
-          fetch(`https://book.alitechbot.uz/api/users/shelf/${id}`,requestOptions) 
-          .then(data=>data.json())
-          .then(data=> console.log(data))
-          .cathc(err=>console.log(err))
-       }
-    function searchByInputValue(event){
+        fetch(
+          `https://book.alitechbot.uz/api/users/shelf/${id}`,
+          requestOptions
+        )
+          .then((data) => data.json())
+          .then((data) => console.log(data))
+          .cathc((err) => console.log(err));
+      }
+      function searchByInputValue(event) {
         console.log(event.key);
-        let input = document.getElementById('nav-inp').value
-                        fetch("http://book.alitechbot.uz/api/books")
-                        .then(data=> data.json())
-                        .then(data=> {
-                            const {payload} = data
-                          const filteredData = payload.filter(item=> 
-                          item.title.toLowerCase().includes(input.toLowerCase())
-                
-                        )
-                          console.log(filteredData);
-                          let booksContainer = document.getElementById("books-container");
-                          booksContainer.innerHTML = "";
-                         filteredData.forEach(item=>{
-                            const {  title} = item;
-                            return     booksContainer.innerHTML += `
+        let input = document.getElementById("nav-inp").value;
+        fetch("http://book.alitechbot.uz/api/books")
+          .then((data) => data.json())
+          .then((data) => {
+            const { payload } = data;
+            const filteredData = payload.filter((item) =>
+              item.title.toLowerCase().includes(input.toLowerCase())
+            );
+            console.log(filteredData);
+            let booksContainer = document.getElementById("books-container");
+            booksContainer.innerHTML = "";
+            filteredData.forEach((item) => {
+              const { title } = item;
+              return (booksContainer.innerHTML += `
                              
                                <ul>
                                 <li>Result By title:${title}</li>
                                 </ul>
-                             `
-                         })
-                        }).catch(err=>console.log(err))
-         
-        } 
-    function IstokenAvail(){
-        const box = document.getElementById('login-box')
-        if(localStorage.token){
-            if(!box.classList.contains('logged-in')){
-                box.classList.add('logged-in');
-                box.innerHTML=`
+                             `);
+            });
+          })
+          .catch((err) => console.log(err));
+      }
+      function IstokenAvail() {
+        const box = document.getElementById("login-box");
+        if (localStorage.token) {
+          if (!box.classList.contains("logged-in")) {
+            box.classList.add("logged-in");
+            box.innerHTML = `
                     <a onclick="addBookForm(event)" href="#">Add book</a>
                     <a onclick="addAuthorForm(event)" href="#">Add author</a>
                 <select onclick="logOut(event)">
@@ -204,36 +223,32 @@
                     <option  value="logout" > Log out </option>
                 </select>
                 
-            `
-          
-            }
-           
-        }else{
-         //    location.pathname = './index.html'
-         const box = document.getElementById('login-box')
-         box.classList.remove('logged-in')
-         box.innerHTML = `
+            `;
+          }
+        } else {
+          //    location.pathname = './index.html'
+          const box = document.getElementById("login-box");
+          box.classList.remove("logged-in");
+          box.innerHTML = `
          <a href="login.html">Sign In</a>
          <a href="sign-up.html">Join</a>         
-         `
+         `;
         }
-    }
+      }
 
-    IstokenAvail()
-    setInterval(IstokenAvail,4000);
-    function logOut(event){
-        let value = event.target.value
+      IstokenAvail();
+      setInterval(IstokenAvail, 4000);
+      function logOut(event) {
+        let value = event.target.value;
         console.log(value);
-        if(value === 'logout'){
-            alert('Are you sure to leave')
-            localStorage.clear()
-            location.pathname='/index.html'
-        }else if(value === 'profile'){
-            location.pathname = '/profile.html'
+        if (value === "logout") {
+          alert("Are you sure to leave");
+          localStorage.clear();
+          location.pathname = "/index.html";
+        } else if (value === "profile") {
+          location.pathname = "/profile.html";
         }
-    }
-   
-</script>
-
-</body>
+      }
+    </script>
+  </body>
 </html>

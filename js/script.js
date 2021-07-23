@@ -5,7 +5,7 @@ const Deafult_Writer_Image =
 
 const Default_Author_Image =
   "https://cdn.pixabay.com/photo/2012/11/28/11/10/shakespeare-67698__340.jpg";
-// ======================Print Books to the Screen =====================
+// ========================================Print Books to the Screen ==========================
 function fetchBooks() {
   displaySpinner(true);
   fetch("https://book.alitechbot.uz/api/books")
@@ -26,9 +26,9 @@ function fetchBooks() {
           category,
           price,
         } = item;
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
-        if(imageLink.startsWith('https')){
-          imageFinalLink = imageLink 
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+        if (imageLink.startsWith("https")) {
+          imageFinalLink = imageLink;
         }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
@@ -62,9 +62,7 @@ function fetchBooks() {
 }
 window.fetchBooks = fetchBooks;
 
-//  ======================================Fetch Books By Id  ===================================
-
-/* =========================Fetch Book By Id ============================*/
+/* =======================================Fetch Book By Id ============================*/
 
 function fetchBookById() {
   var query = new URLSearchParams(location.search);
@@ -77,14 +75,23 @@ function fetchBookById() {
       console.log(data);
       const { book } = data.payload;
       const { comment } = data.payload;
-      
+
       console.log(book);
-      const { imageLink, author, country, language, year, pages, title, _id,description } =
-        book;
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
-        if(imageLink.startsWith('https')){
-          imageFinalLink = imageLink 
-        }
+      const {
+        imageLink,
+        author,
+        country,
+        language,
+        year,
+        pages,
+        title,
+        _id,
+        description,
+      } = book;
+      let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+      if (imageLink.startsWith("https")) {
+        imageFinalLink = imageLink;
+      }
       const { lastName } = author;
       console.log(lastName);
       let booksContainer = document.getElementById("books-container");
@@ -113,17 +120,16 @@ function fetchBookById() {
                           </div>
                     </div>
             `;
-            let commentHtml = document.getElementById('list')
-            comment.forEach((item) => {
-              console.log(item);
-              const{firstName,lastName} = item.user
-              const {text} = item
-              commentHtml.innerHTML+=`
+      let commentHtml = document.getElementById("list");
+      comment.forEach((item) => {
+        console.log(item);
+        const { firstName, lastName } = item.user;
+        const { text } = item;
+        commentHtml.innerHTML += `
                  <li>${firstName} commented : ${text} </li>
                     
-              `
-                 
-            });
+              `;
+      });
       displaySpinner(false);
     })
     .catch((err) => {
@@ -194,7 +200,7 @@ function fetchAuthorById() {
       displaySpinner(false);
     });
 }
-// ------------------------------DISPLAY SPINNER --------------------------------
+// ----------------------------------------DISPLAY SPINNER --------------------------------
 function displaySpinner(loading = true) {
   const spinner = `
     <div class="spin-container">
@@ -215,7 +221,7 @@ function displaySpinner(loading = true) {
 //
 // -------------------------------------MY Favourite Books ------------------------------------
 function myFavor() {
-  console.log('installing');
+  console.log("installing");
   displaySpinner(true);
   var requestOptions = {
     method: "GET",
@@ -225,9 +231,9 @@ function myFavor() {
     },
     // redirect: "follow",
   };
-  
+
   fetch("https://book.alitechbot.uz/api/users/shelf", requestOptions)
-  // console.log('fetching')
+    // console.log('fetching')
     .then((data) => data.json())
     .then((result) => {
       console.log(result);
@@ -248,9 +254,9 @@ function myFavor() {
           price,
         } = item;
         console.log(author);
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
-        if(imageLink.startsWith('https')){
-          imageFinalLink = imageLink 
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+        if (imageLink.startsWith("https")) {
+          imageFinalLink = imageLink;
         }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
@@ -282,7 +288,7 @@ function myFavor() {
       displaySpinner(false);
     });
 }
-// ----------- ------------------------- MY BOOKS  ----------------------------------------
+// ----------- -------------------------   MY BOOKS  ----------------------------------------
 function myBooks() {
   displaySpinner(true);
   var requestOptions = {
@@ -314,9 +320,9 @@ function myBooks() {
           price,
         } = item;
         console.log(author);
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`
-        if(imageLink.startsWith('https')){
-          imageFinalLink = imageLink 
+        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+        if (imageLink.startsWith("https")) {
+          imageFinalLink = imageLink;
         }
         const lastname = item.author?.lastName;
         booksContainer.innerHTML += `
@@ -350,7 +356,6 @@ function myBooks() {
 }
 //
 
-
 // -----------------WINDOW ONLOAD ===========================
 window.onload = function () {
   let currentPage = location.pathname;
@@ -362,10 +367,9 @@ window.onload = function () {
     fetchBookById();
   } else if (currentPage.startsWith("/myBooks.html")) {
     myBooks();
-  }else if (currentPage.startsWith("/myFavor.html")) {
+  } else if (currentPage.startsWith("/myFavor.html")) {
     myFavor();
-  }
-   else if (currentPage.startsWith("/books.html")) {
+  } else if (currentPage.startsWith("/books.html")) {
     fetchBooks();
   }
 };
@@ -379,5 +383,5 @@ function validateImage(img, isAuthor) {
   return img;
 }
 //
-export {displaySpinner}
+export { displaySpinner };
 export { fetchBooks, fetchAuthors };

@@ -121,6 +121,12 @@ async function addBookForm() {
         if (result.success != false) {
           window.Swal.fire({
             title: 'Kitob yuklandi',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutDown'
+          },
             text: 'Siz taqdim qilgan kitob yaratildi',
             icon: 'success',
             showCancelButton: true,
@@ -172,6 +178,12 @@ async function addBookForm() {
         if ( typeof result === 'object') {
           window.Swal.fire({
             title: 'Author yuklandi',
+            showClass: {
+              popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+              popup: 'animate__animated animate__fadeOutDown'
+          },
             text: 'Siz taqdim qilgan kitob yaratildi',
             icon: 'success',
             showCancelButton: true,

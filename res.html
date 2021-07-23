@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <style>
-        .mobile{
-            position: absolute;
-            right: 8px;
-            top: 25px;
-            cursor: pointer;
+      .mobile {
+        position: absolute;
+        right: 8px;
+        top: 25px;
+        cursor: pointer;
+      }
+      span {
+        display: block;
+        height: 4px;
+        width: 25px;
+        background: black;
+        margin-bottom: 2px;
+        display: none;
+      }
+      .comp {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      @media only screen and (max-width: 600px) {
+        .comp {
+          display: none;
+          flex-direction: column;
         }
-        span{
-            display: block;
-            height: 4px;
-            width: 25px;
-            background: black;
-            margin-bottom: 2px;
-            display: none;
+        span {
+          display: block;
         }
-        .comp{
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-        }
-        @media only screen and (max-width: 600px){
-            .comp{
-                display: none;
-                flex-direction: column;
-            }
-            span{
-                display: block;
-            }
-        }
+      }
     </style>
     <main>
-       <div onclick="hide(event)" class="mobile">
-            <i   class="fas fa-align-justify"></i>
-       </div>
-       <div class="comp">
-           <h4>Home</h4>
-           <h4>About</h4>
-           <h4>Contact</h4>
-
-       </div>
+      <div onclick="hide(event)" class="mobile">
+        <i class="fas fa-align-justify"></i>
+      </div>
+      <div class="comp">
+        <h4>Home</h4>
+        <h4>About</h4>
+        <h4>Contact</h4>
+      </div>
     </main>
     <script>
-        // let mobile = document.querySelector('.mobile')
-        // mobile.addEventListener('click',(event)=>{
-        //     let doc= document.querySelector('.comp')
-        //     doc.style.cssText = 'display:block'
-        //     let no = event.target
-        //     no.innerHtml = `X`
-        // })
-        function hide(event){
-            event.target.style.cssText = 'display:none'
-            let doc= document.querySelector('.comp')
-            doc.style.cssText = 'display:block'
-            let cancel = event.target;
-            console.log(cancel);
-            cancel.innerHTML = `<i onclick='clear()' class="far fa-window-close"></i>`
-        }
-        function clear(){
-            let doc= document.querySelector('.comp')
-            doc.style.cssText = 'display:none'
-        }
+      // let mobile = document.querySelector('.mobile')
+      // mobile.addEventListener('click',(event)=>{
+      //     let doc= document.querySelector('.comp')
+      //     doc.style.cssText = 'display:block'
+      //     let no = event.target
+      //     no.innerHtml = `X`
+      // })
+      function hide(event) {
+        event.target.style.cssText = "display:none";
+        let doc = document.querySelector(".comp");
+        doc.style.cssText = "display:block";
+        let cancel = event.target;
+        console.log(cancel);
+        cancel.innerHTML = `<i onclick='clear()' class="far fa-window-close"></i>`;
+      }
+      function clear() {
+        let doc = document.querySelector(".comp");
+        doc.style.cssText = "display:none";
+      }
     </script>
-</body>
+  </body>
 </html>

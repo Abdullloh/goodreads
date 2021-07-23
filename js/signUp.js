@@ -24,6 +24,12 @@ function signUp(event){
         if (data.success) {
             Swal.fire({
               title: 'Sign Up',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutDown'
+            },
               text: 'Your are sign up successfully',
               icon: 'success',
               showCancelButton: true,
@@ -37,6 +43,12 @@ function signUp(event){
           } else {
             Swal.fire({
                 title: 'Hatolik',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                  popup: 'animate__animated animate__fadeOutDown'
+              },
                 text: error.message,
                 icon: 'error',
                 showCancelButton: true,
