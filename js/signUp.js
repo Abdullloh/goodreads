@@ -14,10 +14,11 @@ function signUp(event){
     localStorage.setItem('user',JSON.stringify(user))
     var requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'*' },
         body: JSON.stringify(user),
       };
-      fetch("http://book.alitechbot.uz/api/sign-up", requestOptions)
+      fetch("https://book.alitechbot.uz/api/sign-up", requestOptions)
        .then(res=> res.json())
        .then(data=>{
            console.log(data);

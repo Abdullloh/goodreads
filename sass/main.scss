@@ -4,7 +4,16 @@
     box-sizing: border-box;
     position: relative;
 }
-
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+  
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.651);
+  border-radius: 10px;
+  
+}
 p{
   margin-bottom: 0;
 }
