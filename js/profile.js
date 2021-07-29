@@ -1,6 +1,6 @@
-
+let token = localStorage.token
 let storage = localStorage.getItem('user')
-
+console.log(storage);
 window.addEventListener('load',()=>{
     const data = JSON.parse(storage);
     let {email,password,firstName,lastName} = data
@@ -37,12 +37,15 @@ function submitHandler(event){
     console.log(newUser);
     var requestOptions = {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'*' },
+        headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin':'*' ,
+        'Authorization': `Bearer ${localStorage.token}`
+    },
         body: JSON.stringify(newUser),
       };
-      fetch("http://book.alitechbot.uz/api/sign-up", requestOptions)
+      fetch("https://book.alitechbot.uz/api/users", requestOptions)
       .then(res=> res.json())
-    //   .then(data=>console.log(data))
+      .then(data=>console.log(data))
 }
 

@@ -98,6 +98,9 @@ main section #container {
   height: 290px;
   display: flex;
 }
+main section #container .img-con {
+  width: 100%;
+}
 main section #container .img-con img {
   height: 285px;
   width: 100%;

@@ -8,7 +8,7 @@ const Default_Author_Image =
 // ========================================Print Books to the Screen ==========================
 function fetchBooks() {
   displaySpinner(true);
-  fetch("https://book.alitechbot.uz/api/books")
+  fetch('https://book.alitechbot.uz/api/books?pageSize=15')
     .then((data) => data.json())
     .then((data) => {
       console.log(data);

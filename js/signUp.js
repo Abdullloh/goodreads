@@ -9,6 +9,7 @@ function signUp(event){
         password:password.value,
         firstName:firstName.value,
         lastName:lastName.value,
+        
     }
     console.log(user);
     localStorage.setItem('user',JSON.stringify(user))
@@ -83,7 +84,7 @@ function login(event) {
       password: password.value,
     };
     console.log(user);
-  
+    localStorage.setItem('user',JSON.stringify(user))
     var requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

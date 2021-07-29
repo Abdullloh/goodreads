@@ -195,8 +195,9 @@
                 box.innerHTML=`
                     <a onclick="addBookForm(event)" href="#">Add book</a>
                     <a onclick="addAuthorForm(event)" href="#">Add author</a>
-                <select onclick="logOut(event)">
-                    <option value="profile">My Profile </option>
+                    <select onclick="logOut(event)">
+                    <option value='user'>User</option>
+                    <option value="profile"><a href='profile.html'> My Profile</a> </option>
                     <option  value="logout" > Log out </option>
                 </select>
                 
@@ -220,7 +221,7 @@
         let value = event.target.value
         console.log(value);
         if(value === 'logout'){
-            alert('Are you sure to live?')
+            confirm('Are you sure to live?')
             localStorage.clear()
             location.pathname='/index.html'
             
