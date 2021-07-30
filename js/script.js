@@ -8,7 +8,7 @@ const Default_Author_Image =
 // ========================================Print Books to the Screen ==========================
 function fetchBooks() {
   displaySpinner(true);
-  fetch('https://book.alitechbot.uz/api/books?pageSize=15')
+  fetch('https://book.alitechbot.uz/api/books?pageSize=35')
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
@@ -26,7 +26,7 @@ function fetchBooks() {
           category,
           price,
         } = item;
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+        let imageFinalLink = imageLink;
         if (imageLink.startsWith("https")) {
           imageFinalLink = imageLink;
         }
@@ -320,7 +320,7 @@ function myBooks() {
           price,
         } = item;
         console.log(author);
-        let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+        let imageFinalLink = imageLink;
         if (imageLink.startsWith("https")) {
           imageFinalLink = imageLink;
         }

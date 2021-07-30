@@ -190,7 +190,7 @@ async function addBookForm() {
             showCloseButton: true,
             timer: 3000
           })
-         
+         location.pathname='/authors.html'
   
         } else {
           Swal.fire({

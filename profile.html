@@ -32,21 +32,24 @@
            </nav>
        </header>
        <section style="height: calc(100% - 90px);">
-           <!-- <h1 style="    display: flex;
-           justify-content: center;
-           font-size: 25px;">Profile</h1> -->
+           
         <div id="profile-container">
-           <form id="profileForm" onsubmit='submitHandler(event)' action="#">
-               <div class="first-column">
-                   <input id="email" type="email" placeholder="Email">
-                   <input id="password" type="password" placeholder="Password">
-               </div>
-               <div class="second-column">
-                   <input id="lastName" type="text" placeholder="Last Name">
-                   <input id="firstName" type="text" placeholder="First Name">
-               </div>
-               <button>Save</button>
-           </form>  
+           <div>
+            <h1 style="    display: flex;
+            justify-content: center;
+            font-size: 25px;">Edit Your Current Profile</h1>
+            <form id="profileForm" onsubmit='submitHandler(event)' action="#">
+                <div class="first-column">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                </div>
+                <div class="second-column">
+                    <input id="lastName" type="text" placeholder="Last Name">
+                    <input id="firstName" type="text" placeholder="First Name">
+                </div>
+                <button>Save</button>
+            </form>  
+           </div>
         </div>
        </section>
    </main>
