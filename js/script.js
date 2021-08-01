@@ -88,7 +88,7 @@ function fetchBookById() {
         _id,
         description,
       } = book;
-      let imageFinalLink = `https://book.alitechbot.uz/${imageLink}`;
+      let imageFinalLink = imageLink;
       if (imageLink.startsWith("https")) {
         imageFinalLink = imageLink;
       }

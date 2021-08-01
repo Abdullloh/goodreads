@@ -23,6 +23,7 @@ function signUp(event){
        .then(res=> res.json())
        .then(data=>{
            console.log(data);
+           const{msg} = data
         if (data.success) {
             Swal.fire({
               title: 'Sign Up',
@@ -51,7 +52,7 @@ function signUp(event){
               hideClass: {
                   popup: 'animate__animated animate__fadeOutDown'
               },
-                text: error.message,
+                text: msg,
                 icon: 'error',
                 showCancelButton: true,
                 showCloseButton: true,
@@ -59,7 +60,8 @@ function signUp(event){
               })
           }
         })
-        .catch(error => {
+        .catch(msg => {
+          console.log(error);
             Swal.fire({
                 title: 'Hatolik',
                 text: error.message,

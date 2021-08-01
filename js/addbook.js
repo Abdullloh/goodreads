@@ -133,7 +133,9 @@ async function addBookForm() {
             showCloseButton: true,
             timer: 3000
           }
-          ).then(()=> (location.pathname='/books.html'))
+          ).then((result) => {
+            window.location.pathname = "/books.html";
+          })
           
         
   
