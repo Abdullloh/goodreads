@@ -63,7 +63,7 @@ function signUp(event){
         .catch(msg => {
           console.log(error);
             Swal.fire({
-                title: 'Hatolik',
+                title:msg,
                 text: error.message,
                 icon: 'error',
                 showCancelButton: true,
