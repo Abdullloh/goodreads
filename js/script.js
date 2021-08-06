@@ -142,7 +142,7 @@ function fetchBookById() {
 
 function fetchAuthors() {
   displaySpinner(true);
-  return fetch("http://book.alitechbot.uz/api/authors")
+  return fetch("https://book.alitechbot.uz/api/authors")
     .then((data) => data.json())
     .then((data) => {
       const { payload } = data;
@@ -178,7 +178,7 @@ function fetchAuthorById() {
   var query = new URLSearchParams(location.search);
   let id = query.get("id");
   displaySpinner(true);
-  fetch(`http://book.alitechbot.uz/api/authors/${id}`)
+  fetch(`https://book.alitechbot.uz/api/authors/${id}`)
     .then((data) => data.json())
     .then((data) => {
       console.log(data);
@@ -366,7 +366,7 @@ window.onload = function () {
   } else if (currentPage.startsWith("/book-details.html")) {
     fetchBookById();
   } else if (currentPage.startsWith("/myBooks.html")) {
-    myBooks();
+    myBooks() ;
   } else if (currentPage.startsWith("/myFavor.html")) {
     myFavor();
   } else if (currentPage.startsWith("/books.html")) {
