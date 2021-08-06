@@ -1,6 +1,6 @@
 // -------------------------------Add Book From --------------------------
 async function addBookForm() {
-  const auth = await fetch("http://book.alitechbot.uz/api/authors");
+  const auth = await fetch("https://book.alitechbot.uz/api/authors");
    const authors = await auth.json();
    const {payload} = authors
    const authOptions = payload.map(item=>  `<option value='${item._id}'> ${item.lastName} </option>`)
